@@ -19,7 +19,11 @@ const Dashboard = () => {
                 <ul className="menu p-4 overflow-y-auto w-68 bg-base-100 text-base-content">
                     <li className='text-primary'><Link to="/dashboard">My appointments</Link></li>
                     <li className='text-primary'><Link to="/dashboard/review">My review</Link></li>
-                    {admin && <li className='text-primary'><Link to="/dashboard/users">All users</Link></li>}
+                    {admin && <>
+                        <li className='text-primary'><Link to="/dashboard/users">All users</Link></li>
+                        <li className='text-primary'><Link to="/dashboard/addDoctor">Add a doctor</Link></li>
+                        <li className='text-primary'><Link to="/dashboard/manageDoctor">ManageDoctor</Link></li>
+                    </>}
                 </ul>
             </div>
         </div>

@@ -11,7 +11,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
     const [user, loading] = useAuthState(auth);
     const formattedDate = format(date, 'PP')
 
-    const { _id, name, slots } = treatment;
+    const { _id, name, slots, price } = treatment;
     const handleBooking = e => {
 
         const booking = {
@@ -19,6 +19,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
             treatment: name,
             time: e.target.slot.value,
             treatmentId: _id,
+            price,
             patientEmail: user.email,
             patientName: user.displayName,
             phone: e.target.phone.value
@@ -26,7 +27,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
 
         //send booking data from client side to server side
 
-        fetch('https://sheltered-beyond-95272.herokuapp.com/booking', {
+        fetch('http://localhost:5000/booking', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

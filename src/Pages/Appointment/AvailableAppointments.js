@@ -10,7 +10,7 @@ const AvailableAppointments = ({ date }) => {
     const [treatment, setTreatment] = useState(null);
     const formattedDate = format(date, "PP");
     const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () =>
-        fetch(`https://sheltered-beyond-95272.herokuapp.com/availableBookings?date=${formattedDate}`)
+        fetch(`http://localhost:5000/availableBookings?date=${formattedDate}`)
             .then(res => res.json())
     )
     if (isLoading) {
